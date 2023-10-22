@@ -95,6 +95,7 @@ const IntialModal = (props: IntialModalProps) => {
                           onChange={field.onChange}
                         />
                       </FormControl>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
