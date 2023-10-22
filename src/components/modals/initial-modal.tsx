@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import FileUpload from "../file-upload";
+import { Button } from "../ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,9 +15,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import {
   Form,
   FormControl,
@@ -21,8 +24,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import FileUpload from "../file-upload";
+import { useRouter } from "next/navigation";
 
 type IntialModalProps = {};
 
@@ -33,6 +35,7 @@ const formSchema = z.object({
 
 const IntialModal = (props: IntialModalProps) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const router = useRouter();
 
   useEffect(() => {
     setIsMounted(true);
@@ -49,7 +52,15 @@ const IntialModal = (props: IntialModalProps) => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    try {
+      await axios.post("/api/servers", values);
+
+      form.reset();
+      router.refresh();
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (!isMounted) {
