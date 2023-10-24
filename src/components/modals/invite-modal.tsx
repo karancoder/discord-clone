@@ -15,7 +15,6 @@ type InviteModalProps = {};
 
 const InviteModal = (props: InviteModalProps) => {
   const { isOpen, onOpen, onClose, type, data } = useModal();
-  const router = useRouter();
   const origin = useOrigin();
 
   const { server } = data;
