@@ -89,7 +89,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
           <ServerSearch
             data={[
               {
-                label: "Chat Hubs",
+                label: "Text Channels",
                 type: "channel",
                 data: textChannels?.map((channel) => ({
                   id: channel.id,
@@ -98,7 +98,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                 })),
               },
               {
-                label: "Audio Hubs",
+                label: "Audio Channels",
                 type: "channel",
                 data: audioChannels?.map((channel) => ({
                   id: channel.id,
@@ -107,7 +107,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                 })),
               },
               {
-                label: "Video Hub",
+                label: "Video Channels",
                 type: "channel",
                 data: videoChannels?.map((channel) => ({
                   id: channel.id,
@@ -134,7 +134,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               sectionType="channels"
               channelType={ChannelType.TEXT}
               role={yourRole}
-              label="Chat Hubs"
+              label="Text Channels"
             />
             <div className="space-y-[2px]">
               {textChannels.map((channel) => (
@@ -154,7 +154,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               sectionType="channels"
               channelType={ChannelType.AUDIO}
               role={yourRole}
-              label="Audio Hubs"
+              label="Audio Channels"
             />
             <div className="space-y-[2px]">
               {audioChannels.map((channel) => (
@@ -174,7 +174,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               sectionType="channels"
               channelType={ChannelType.VIDEO}
               role={yourRole}
-              label="Video Hubs"
+              label="Video Channels"
             />
             <div className="space-y-[2px]">
               {videoChannels.map((channel) => (

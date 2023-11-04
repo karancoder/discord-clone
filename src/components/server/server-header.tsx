@@ -71,7 +71,7 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
             onClick={() => onOpen("createChannel")}
             className="py-2 px-3 text-sm cursor-pointer"
           >
-            Create Hub
+            Create Channel
             <PlusCircle className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}

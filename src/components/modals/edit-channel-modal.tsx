@@ -39,7 +39,7 @@ type EditChannelModalProps = {};
 const formSchema = z.object({
   name: z
     .string()
-    .min(1, { message: "Hub name is required" })
+    .min(1, { message: "Channel name is required" })
     .refine((name) => name !== "general", {
       message: "Channel name cannot be 'general'",
     }),
@@ -100,7 +100,7 @@ const EditChannelModal = (props: EditChannelModalProps) => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Edit Hub
+            Edit Channel
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
@@ -112,13 +112,13 @@ const EditChannelModal = (props: EditChannelModalProps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Hub Name
+                      Channel Name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-black"
-                        placeholder={"Enter hub name"}
+                        placeholder={"Enter Channel name"}
                         {...field}
                       />
                     </FormControl>
@@ -131,7 +131,7 @@ const EditChannelModal = (props: EditChannelModalProps) => {
                 name="type"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Hub type</FormLabel>
+                    <FormLabel>Channel type</FormLabel>
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -139,7 +139,7 @@ const EditChannelModal = (props: EditChannelModalProps) => {
                     >
                       <FormControl>
                         <SelectTrigger className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
-                          <SelectValue placeholder="Select a Hub Type" />
+                          <SelectValue placeholder="Select a Channel Type" />
                           <SelectContent>
                             {Object.values(ChannelType).map((type) => (
                               <SelectItem
