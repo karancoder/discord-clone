@@ -193,7 +193,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             <ServerSection
               sectionType="members"
               role={yourRole}
-              label="Community Members"
+              label="Server Members"
               server={server}
             />
             <div className="space-y-[2px]">

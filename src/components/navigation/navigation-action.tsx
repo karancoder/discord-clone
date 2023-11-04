@@ -12,7 +12,7 @@ const NavigationAction = (props: NavigationActionProps) => {
 
   return (
     <div>
-      <ActionTooltip label="Add a community" side="right" align="center">
+      <ActionTooltip label="Add a server" side="right" align="center">
         <button
           onClick={() => onOpen("createServer")}
           className="group flex items-center"

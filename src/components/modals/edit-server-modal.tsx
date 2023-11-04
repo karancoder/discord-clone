@@ -81,10 +81,10 @@ const EditServerModal = (props: EditServerModalProps) => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Customize your community
+            Customize your server
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
-            Give your community a life with a name and an image. You can always
+            Give your server a life with a name and an image. You can always
             change this later.
           </DialogDescription>
         </DialogHeader>
@@ -115,13 +115,13 @@ const EditServerModal = (props: EditServerModalProps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      Community Name
+                      Server Name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-black"
-                        placeholder={"Enter community name"}
+                        placeholder={"Enter server name"}
                         {...field}
                       />
                     </FormControl>
