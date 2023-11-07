@@ -7,15 +7,19 @@ import React from "react";
 import ChatHeader from "@/components/chat/chat-header";
 import ChatMessages from "@/components/chat/chat-messages";
 import ChatInput from "@/components/chat/chat-input";
+import MediaRoom from "@/components/media-room";
 
 type MemberIDPageProps = {
   params: {
     memberId: string;
     serverId: string;
   };
+  searchParams: {
+    video?: boolean;
+  };
 };
 
-const MemberIDPage = async ({ params }: MemberIDPageProps) => {
+const MemberIDPage = async ({ params, searchParams }: MemberIDPageProps) => {
   const profile = await currentProfile();
 
   if (!profile) {
@@ -58,25 +62,32 @@ const MemberIDPage = async ({ params }: MemberIDPageProps) => {
         serverId={params.serverId}
         type={"conversation"}
       />
-      <ChatMessages
-        member={currentMember}
-        name={otherMember.profile.name}
-        chatId={conversation.id}
-        type="conversation"
-        apiUrl="/api/direct-messages"
-        socketUrl="/api/socket/direct-messages"
-        socketQuery={{ conversationId: conversation.id }}
-        paramKey="conversationId"
-        paramValue={conversation.id}
-      />
-      <ChatInput
-        apiUrl={"/api/socket/direct-messages"}
-        query={{
-          conversationId: conversation.id,
-        }}
-        name={otherMember.profile.name}
-        type={"conversation"}
-      />
+      {!searchParams?.video && (
+        <>
+          <ChatMessages
+            member={currentMember}
+            name={otherMember.profile.name}
+            chatId={conversation.id}
+            type="conversation"
+            apiUrl="/api/direct-messages"
+            socketUrl="/api/socket/direct-messages"
+            socketQuery={{ conversationId: conversation.id }}
+            paramKey="conversationId"
+            paramValue={conversation.id}
+          />
+          <ChatInput
+            apiUrl={"/api/socket/direct-messages"}
+            query={{
+              conversationId: conversation.id,
+            }}
+            name={otherMember.profile.name}
+            type={"conversation"}
+          />
+        </>
+      )}
+      {searchParams?.video && (
+        <MediaRoom chatId={conversation.id} video={true} audio={true} />
+      )}
     </div>
   );
 };
