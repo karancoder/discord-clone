@@ -111,6 +111,7 @@ const ChatMessages = ({
                 deleted={message.deleted}
                 socketUrl={socketUrl}
                 socketQuery={socketQuery}
+                type={type}
               />
             ))}
           </React.Fragment>
