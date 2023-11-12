@@ -37,3 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Screenshot
 ![image](https://github.com/karancoder/discord-clone/assets/16652376/ad6795fc-a212-416c-84bc-91178691b300)
+
+![communi-chat-2](https://github.com/karancoder/discord-clone/assets/16652376/a629d45b-2e17-46fd-ae65-ee27ff35b4b7)
